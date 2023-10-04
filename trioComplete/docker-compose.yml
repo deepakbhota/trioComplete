@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mysql:
+    image: flask-db
+    build: ./db
+    container_name: mysql
+  flask-app:
+    image: flask-app
+    build: ./flask-app
+    replicas: 5
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
